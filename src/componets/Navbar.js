@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Navbar(props) {
     return (
@@ -23,12 +23,14 @@ export default function Navbar(props) {
                             <a className="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="/">{props.aboutText}</a>
+                            <button className="btn btn-link nav-link" onClick={props.toggleAbout}>
+                                {props.aboutText}
+                            </button>
                         </li>
                     </ul>
                     <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
                         <input className="form-check-input" type="checkbox" role="switch" onClick={props.togglemode} id="flexSwitchCheckDefault"/>
-                            <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
+                        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
                     </div>
                 </div>
             </div>
@@ -36,8 +38,8 @@ export default function Navbar(props) {
     )
 }
 
-
 Navbar.propTypes = {
     title: PropTypes.string,
-    aboutText: PropTypes.string
-} 
+    aboutText: PropTypes.string,
+    toggleAbout: PropTypes.func
+}
